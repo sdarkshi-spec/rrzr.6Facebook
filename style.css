@@ -1,0 +1,163 @@
+/* style.css - تصميم فيسبوك */
+body {
+    background-color: #3b5998; /* أزرق فيسبوك كلاسيكي */
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* طبقة شفافة فوق الخلفية */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f0f2f5;
+    text-shadow: 1px 1px #000000;
+}
+
+.section {
+    background-color: #1877f2; /* أزرق فيسبوك فاتح */
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #f0f2f5;
+    margin-bottom: 15px;
+}
+
+/* نمط نموذج تسجيل الدخول */
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 16px; color: #f0f2f5; }
+.form-group input {
+    width: 98%; padding: 12px; border: 1px solid #ffffff; border-radius: 6px;
+    background-color: #ffffff; color: #000000; font-size: 16px;
+}
+
+.submit-btn {
+    width: 100%; background-color: #0866ff; color: #ffffff; border: none;
+    border-radius: 8px; padding: 15px; font-size: 18px; font-weight: bold;
+    cursor: pointer; transition: background-color 0.3s; margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) { background-color: #004dff; }
+.submit-btn:disabled { background-color: #6c757d; cursor: not-allowed; }
+
+
+/* قائمة الباقات */
+.diamond-list { display: flex; flex-direction: column; gap: 15px; }
+.diamond-item {
+    background-color: #0866ff; border-radius: 8px; padding: 15px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.diamond-item:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); }
+
+.diamond-info {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 20px; font-weight: bold; padding: 5px 0;
+}
+
+.diamond-info span:first-child { color: #f0f2f5; }
+
+.buy-btn {
+    width: 100%; background-color: #1877f2; color: #ffffff;
+    border: none; border-radius: 8px; padding: 12px 20px;
+    font-size: 18px; font-weight: bold; cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover:not(:disabled) { background-color: #004dff; }
+.buy-btn:disabled { background-color: #6c757d; cursor: not-allowed; }
+
+/* المؤقت والعرض الخاص (اللون الأكثر تركيزاً: الأخضر النيون) */
+.special-offer-section {
+    background-color: #00ff00; /* خلفية خضراء ساطعة */
+    color: #000000;
+    animation: pulse 1.5s infinite;
+}
+
+.special-offer-section h2 {
+    color: #0866ff; /* عنوان بلون فيسبوك بارز */
+}
+
+.special-offer-section p {
+    color: #1877f2;
+}
+
+.timer {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: #0866ff;
+    background-color: #f0f2f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-shadow: 1px 1px #000000;
+}
+
+.special-offer-section .diamond-item {
+    background-color: #f0f2f5;
+    border-left: 5px solid #0866ff;
+}
+
+.special-offer-section .free-price {
+    color: #28a745; /* أخضر داكن */
+    font-size: 22px;
+}
+
+.special-offer-section .free-offer-btn {
+    background-color: #28a745; /* أخضر للإجراء المجاني */
+    color: #ffffff;
+}
+
+.special-offer-section .free-offer-btn:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+/* حالة انتهاء المؤقت */
+.expired-offer-section {
+    background-color: #00ff00; /* نفس اللون البارز */
+}
+
+.expired-offer-section .paid-expired-btn {
+    background-color: #dc3545; /* أحمر للخطر للإجراء المدفوع النهائي */
+    color: #ffffff;
+}
+
+.expired-offer-section .paid-expired-btn:hover {
+    background-color: #c82333;
+}
+
+
+/* الرسوم المتحركة للجذب */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+}
+
+.hidden { display: none; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #f0f2f5;
+}
