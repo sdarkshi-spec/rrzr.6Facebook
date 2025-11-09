@@ -1,163 +1,229 @@
-/* style.css - تصميم فيسبوك */
+/* style.css - واجهة حديثة لخدمات المتابعين */
+
+/* إعداد عام */
 body {
-    background-color: #3b5998; /* أزرق فيسبوك كلاسيكي */
-    color: #ffffff;
     font-family: 'Cairo', sans-serif;
-    direction: rtl;
-    text-align: right;
+    background: linear-gradient(135deg, #e9efff, #d6e0ff);
+    color: #222;
     margin: 0;
     padding: 0;
+    direction: rtl;
+    text-align: right;
     line-height: 1.6;
 }
 
+/* الحاوية الرئيسية */
 .container {
     max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* طبقة شفافة فوق الخلفية */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-header h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #f0f2f5;
-    text-shadow: 1px 1px #000000;
-}
-
-.section {
-    background-color: #1877f2; /* أزرق فيسبوك فاتح */
-    border-radius: 10px;
+    margin: 40px auto;
     padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* العنوان الرئيسي */
+header h1 {
+    font-size: 28px;
+    text-align: center;
+    background: linear-gradient(90deg, #1877f2, #42a5f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+}
+
+/* الأقسام */
+.section {
+    background-color: #f7f9fc;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .section h2 {
-    font-size: 24px;
-    color: #f0f2f5;
+    font-size: 22px;
+    color: #1877f2;
     margin-bottom: 15px;
 }
 
-/* نمط نموذج تسجيل الدخول */
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 16px; color: #f0f2f5; }
+/* نموذج تسجيل الدخول */
+.form-group { 
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label { 
+    margin-bottom: 6px; 
+    font-weight: bold; 
+    font-size: 15px;
+    color: #333;
+}
+
 .form-group input {
-    width: 98%; padding: 12px; border: 1px solid #ffffff; border-radius: 6px;
-    background-color: #ffffff; color: #000000; font-size: 16px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #fff;
 }
 
+/* زر الإرسال */
 .submit-btn {
-    width: 100%; background-color: #0866ff; color: #ffffff; border: none;
-    border-radius: 8px; padding: 15px; font-size: 18px; font-weight: bold;
-    cursor: pointer; transition: background-color 0.3s; margin-top: 10px;
+    width: 100%;
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.submit-btn:hover:not(:disabled) { background-color: #004dff; }
-.submit-btn:disabled { background-color: #6c757d; cursor: not-allowed; }
+.submit-btn:hover:not(:disabled) {
+    background-color: #1259c3;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
+.submit-btn:disabled {
+    background-color: #a5a5a5;
+    cursor: not-allowed;
+}
 
 /* قائمة الباقات */
-.diamond-list { display: flex; flex-direction: column; gap: 15px; }
-.diamond-item {
-    background-color: #0866ff; border-radius: 8px; padding: 15px;
-    display: flex; flex-direction: column; gap: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+.diamond-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.diamond-item:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); }
+.diamond-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.diamond-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
 
 .diamond-info {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 20px; font-weight: bold; padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-.diamond-info span:first-child { color: #f0f2f5; }
+.diamond-info span:first-child {
+    color: #333;
+}
 
 .buy-btn {
-    width: 100%; background-color: #1877f2; color: #ffffff;
-    border: none; border-radius: 8px; padding: 12px 20px;
-    font-size: 18px; font-weight: bold; cursor: pointer;
-    transition: background-color 0.3s;
+    width: 100%;
+    background-color: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.buy-btn:hover:not(:disabled) { background-color: #004dff; }
-.buy-btn:disabled { background-color: #6c757d; cursor: not-allowed; }
+.buy-btn:hover:not(:disabled) {
+    background-color: #1259c3;
+    transform: scale(1.03);
+}
 
-/* المؤقت والعرض الخاص (اللون الأكثر تركيزاً: الأخضر النيون) */
+.buy-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* العروض الخاصة */
 .special-offer-section {
-    background-color: #00ff00; /* خلفية خضراء ساطعة */
-    color: #000000;
-    animation: pulse 1.5s infinite;
+    background: #fff3cd;
+    color: #222;
+    border: 1px solid #ffeeba;
 }
 
 .special-offer-section h2 {
-    color: #0866ff; /* عنوان بلون فيسبوك بارز */
+    color: #ff9800;
 }
 
-.special-offer-section p {
-    color: #1877f2;
-}
-
-.timer {
-    font-size: 40px;
+.special-offer-section .timer {
+    font-size: 32px;
     font-weight: bold;
     text-align: center;
-    color: #0866ff;
-    background-color: #f0f2f5;
-    padding: 10px;
-    border-radius: 5px;
+    color: #ff9800;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
     margin-top: 10px;
-    text-shadow: 1px 1px #000000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .special-offer-section .diamond-item {
-    background-color: #f0f2f5;
-    border-left: 5px solid #0866ff;
+    border-left: 5px solid #ff9800;
 }
 
 .special-offer-section .free-price {
-    color: #28a745; /* أخضر داكن */
-    font-size: 22px;
+    color: #28a745;
+    font-size: 20px;
 }
 
 .special-offer-section .free-offer-btn {
-    background-color: #28a745; /* أخضر للإجراء المجاني */
-    color: #ffffff;
+    background-color: #28a745;
 }
 
 .special-offer-section .free-offer-btn:hover:not(:disabled) {
     background-color: #218838;
 }
 
-/* حالة انتهاء المؤقت */
+/* القسم المنتهي */
 .expired-offer-section {
-    background-color: #00ff00; /* نفس اللون البارز */
+    background-color: #fdecea;
+    border: 1px solid #f5c6cb;
 }
 
 .expired-offer-section .paid-expired-btn {
-    background-color: #dc3545; /* أحمر للخطر للإجراء المدفوع النهائي */
-    color: #ffffff;
+    background-color: #dc3545;
 }
 
 .expired-offer-section .paid-expired-btn:hover {
     background-color: #c82333;
 }
 
-
-/* الرسوم المتحركة للجذب */
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
-}
-
+/* إخفاء */
 .hidden { display: none; }
 
+/* الفوتر */
 footer {
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    color: #f0f2f5;
+    color: #555;
+}
+
+/* تجاوب الموبايل */
+@media (max-width: 600px) {
+    body { font-size: 14px; }
+    .container { padding: 15px; margin: 20px; }
+    header h1 { font-size: 22px; }
+    .section h2 { font-size: 18px; }
+    .buy-btn, .submit-btn { font-size: 15px; padding: 10px; }
+    .diamond-info { font-size: 16px; }
 }
