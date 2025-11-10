@@ -133,7 +133,8 @@ header h1 {
 
 .diamond-info {
     display: flex;
-    justify-content: space-between;
+    /* لجعل العناصر تتوزع على سطر واحد ويستوعب المؤقت */
+    justify-content: space-between; 
     align-items: center;
     font-size: 18px;
     font-weight: 600;
@@ -180,17 +181,8 @@ header h1 {
     color: #ff9800;
 }
 
-.special-offer-section .timer {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    color: #ff9800;
-    background-color: #fff;
-    padding: 8px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
+/* إزالة تنسيق المؤقت القديم من هنا إذا كان موجوداً */
+/* .special-offer-section .timer {... } */
 
 .special-offer-section .diamond-item {
     border-left: 5px solid #ff9800;
